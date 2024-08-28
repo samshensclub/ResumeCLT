@@ -1,6 +1,6 @@
 # ResumeCLT
 
-This is a command line tool to help HR interns rename all the resumes they have received with the power of OpenAI and OCR.
+This is a command line tool to help HR rename all the resumes they have received with the power of OpenAI and OCR.
 
 ## Requirements
 
@@ -41,4 +41,4 @@ Run provided test case with:
 ResumeCLT.py  --source_dir test_resume --output_dir output --target_list test_school_list.txt
 ```
 
-Enjoy being our HR intern.
+Enjoy being our HR.
