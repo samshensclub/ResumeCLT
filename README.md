@@ -6,6 +6,7 @@ This is a command line tool to help HR rename all the resumes they have received
 
 You need to have `python`, `pip`, `poppler-utils` and `tesseract` installed.
 
+If you have trouble installing them, you may just Google for relevent information.
 ```
 pip install -r requirements.txt
 ```
