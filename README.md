@@ -26,7 +26,7 @@ Guess what? Now you DONT need to have `python`, `pip`, `poppler-utils` and `tess
 
 Solution: In XGate, choose the region where OpenAI can be used (e.g. Singapore, UK)
 
-3. "Error processing file input\CHEN Guanhao CV.pdf: [Errno 13] Permission denied: 'output\\xxxxx.pdf'"
+3. "Error processing file input\xxxxx.pdf: [Errno 13] Permission denied: 'output\\xxxxx.pdf'"
  
 Solution: ensure you have the access to edit the relavant folders: right click the folder and check all the access in the propoties part
 
