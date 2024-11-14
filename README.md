@@ -1,34 +1,49 @@
 # ResumeCLT
 
-This is a tool to help HR rename all the resumes they have received with the power of OpenAI and OCR.
+This is a command line tool to help HR interns rename all the resumes they have received with the power of OpenAI and OCR.
 
 ## Requirements
 
-Guess what? Now you DONT need to have `python`, `pip`, `poppler-utils` and `tesseract` installed!
+You need to have `python`, `pip`, `poppler-utils` and `tesseract` installed.
+
+```
+pip install -r requirements.txt
+```
+
+You might need additonal tesseract language packs per your use cases. For example,
+
+```
+sudo dnf install tesseract-langpack-chi_sim
+```
+
+You need to provide your own OpenAI API with `.env`.
 
 ## Usage
 
-1. Download and run the ResumeCLT_Installer.exe from the release page
+```
+ResumeCLT.py [-h] --source_dir test_resume --output_dir output [--target_list TARGET_LIST]
 
-2. Wait for the installing process
+Options for ResumeCLT
 
-3. Nevigate to the dictionary you installed the program
+options:
+  -h, --help            show this help message and exit
+  --source_dir  
+                        Directory where the resume files are stored
+  --output_dir output
+                        Directory where the output files will be stored
+  --target_list target_school_list.txt
+                        File containing the list of target schools
+```
 
-4. Put the raw resumes into the input folder
+Run provided test case with:
 
-5. Run the run_parser.bat
+```
+ResumeCLT.py  --source_dir test_resume --output_dir output --target_list target_school_list.txt
+```
 
-6. Collect the renamed resumes in the output folder
+Enjoy being our HR intern.
 
-# Errors you may encounter
-
-1. "Connection Error"
-
-Solution: In XGate, choose the region where OpenAI can be used (e.g. Singapore, UK)
-
-3. "Error processing file input\xxxxx.pdf: [Errno 13] Permission denied: 'output\\xxxxx.pdf'"
- 
-Solution: ensure you have the access to edit the relavant folders: right click the folder and check all the access in the propoties part
-
-
-Enjoy being HR.
+Copy this to cmd:
+ cd C:\Users\s84387544\Desktop\ResumeCLT-main
+then:
+ResumeCLT.py  --source_dir test_resume --output_dir output --target_list target_school_list.txt

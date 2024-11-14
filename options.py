@@ -6,6 +6,27 @@
 
 import argparse
 
+import os
+import pytesseract
+
+# 获取当前脚本所在的目录
+base_path = os.path.dirname(os.path.abspath(__file__))
+
+# 定义 input 和 output 文件夹的路径
+input_dir = os.path.join(base_path, 'input')
+output_dir = os.path.join(base_path, 'output')
+target_school_list_path = os.path.join(base_path, 'target_school_list.txt')
+env_path = os.path.join(base_path, '.env')
+
+# 配置 Tesseract OCR 的路径（可选）
+tesseract_path = os.path.join(base_path, 'resources', 'tesseract', 'tesseract.exe')
+pytesseract.pytesseract.tesseract_cmd = tesseract_path
+
+# 创建 input 和 output 文件夹（如果不存在）
+os.makedirs(input_dir, exist_ok=True)
+os.makedirs(output_dir, exist_ok=True)
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description='Options for ResumeCLT')
 

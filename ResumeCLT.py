@@ -1,20 +1,41 @@
-# Supported file format: PDF, DOCX, DOC
+# Supported file format: PDF
 # This program will parse all resume presented in source_dir and
 # parse out the following information:
 # - Name
 # - Graduate Year
 # - School & Major (Latest Education)
-# - Highest Level of Education (Two Options: 本碩/博士)
+# - Highest Level of Education (4 Options: 本/master/mphill/博士)
 ## - 竞赛人才
 ## - 顶会人才
 # We will then rename the file to the following format and save it in output_dir:
-## <本碩/博士>-<Name>-<School>-<Major>-<Graduate Year>-<竞赛人才>-<顶会人才>
+## <Matched/Not Matched>-<本科/普通Master/MPhill/博士>-<Name>-<School>-<Major>-<Graduate Year>-<竞赛人才/顶会人才/竞赛人才和顶会人才/NA>
 
 
 from options import parse_args
 from utils import extract_text_from_file, parse_content, generate_filename
 import os
 import shutil
+
+import os
+import pytesseract
+
+# 获取当前脚本所在的目录
+base_path = os.path.dirname(os.path.abspath(__file__))
+
+# 定义 input 和 output 文件夹的路径
+input_dir = os.path.join(base_path, 'input')
+output_dir = os.path.join(base_path, 'output')
+target_school_list_path = os.path.join(base_path, 'target_school_list.txt')
+env_path = os.path.join(base_path, '.env')
+
+# 配置 Tesseract OCR 的路径（可选）
+tesseract_path = os.path.join(base_path, 'resources', 'tesseract', 'tesseract.exe')
+pytesseract.pytesseract.tesseract_cmd = tesseract_path
+
+# 创建 input 和 output 文件夹（如果不存在）
+os.makedirs(input_dir, exist_ok=True)
+os.makedirs(output_dir, exist_ok=True)
+
 
 def process_file(file, args):
     try:
